@@ -7,24 +7,20 @@ import ru.netology.habittracker.dto.Habit
 import ru.netology.habittracker.repository.HabitRepository
 import ru.netology.habittracker.utils.getTodayDayIndex
 
-class HabitViewModel : ViewModel() {
-    private val repo = HabitRepository()
-
+class HabitViewModel(private val repo: HabitRepository) : ViewModel() {
     private val _habits = MutableStateFlow(repo.getAll())
     val habits: StateFlow<List<Habit>> = _habits
 
     fun addHabit(name: String) {
         if (name.isBlank()) return
-        val habit = Habit(name = name)
+        val habit = Habit(id = 0L, name = name)
         repo.add(habit)
         _habits.value = repo.getAll()
     }
 
-    fun toggleDay(habitId: String, dayIndex: Int) {
+    fun toggleDay(habitId: Long, dayIndex: Int) {
         val habit = repo.getAll().find { it.id == habitId } ?: return
         val todayIndex = getTodayDayIndex()
-
-        // Разрешаем переключать только сегодняшний день
         if (dayIndex != todayIndex) return
 
         val updated = habit.copy(dailyStatus = habit.dailyStatus.toMutableList().also {
@@ -34,9 +30,8 @@ class HabitViewModel : ViewModel() {
         _habits.value = repo.getAll()
     }
 
-    fun deleteHabit(id: String) {
+    fun deleteHabit(id: Long) {
         repo.delete(id)
         _habits.value = repo.getAll()
     }
-
 }

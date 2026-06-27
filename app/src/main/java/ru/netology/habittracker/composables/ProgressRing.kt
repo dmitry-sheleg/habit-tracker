@@ -47,7 +47,7 @@ fun ProgressRing(
 }
 
 private fun DrawScope.drawProgressRing(
-    progress: Float,               // 0.0–1.0
+    progress: Float,
     sizePx: Float,
     strokeWidthPx: Float,
     color: Color,
