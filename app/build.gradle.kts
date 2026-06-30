@@ -46,54 +46,31 @@ android {
 
 dependencies {
     implementation(libs.androidx.compose.foundation.layout)
-    implementation(libs.androidx.lifecycle.viewmodel.compose) // или актуальная версия
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.activity.compose)
-//    implementation(libs.androidx.compose.material3)
-//    implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.androidx.compose.remote.creation.core)
     implementation(libs.androidx.compose.runtime.livedata)
-//    implementation(libs.androidx.compose.ui)
-//    implementation(libs.androidx.compose.ui.graphics)
-//    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.espresso.core)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.room3.common.jvm)
     implementation(libs.androidx.ui.graphics)
     implementation(libs.gson)
-//    implementation(libs.androidx.lifecycle.runtime.ktx)
-//    implementation(libs.androidx.material3)
-//    implementation(libs.androidx.navigation.compose)
-//    implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material.icons.core)
     testImplementation(libs.junit)
-//    androidTestImplementation(platform(libs.androidx.compose.bom))
-//    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
-//    debugImplementation(libs.androidx.compose.ui.test.manifest)
-//    debugImplementation(libs.androidx.compose.ui.tooling)
-    coreLibraryDesugaring(libs.desugar.jdk.libs)
-
-    // UI
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.compose.ui.graphics.v162)
-    implementation(libs.androidx.ui.tooling.preview)
-
-    // Material 3 (стабильные компоненты)
-    implementation(libs.androidx.compose.material3.v121)
-
-    // Material (нужен для SwipeToDismiss, DismissState и т.д.)
-    implementation(libs.androidx.material)
-
-    // Иконки
-    implementation(libs.androidx.material.icons.core)
-
-    // Остальное
-    implementation(libs.androidx.lifecycle.viewmodel.compose.v287)
-    implementation(libs.androidx.navigation.compose.v289)
-
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
+    debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
 }
